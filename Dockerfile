@@ -1,4 +1,4 @@
-FROM centos/python-36-centos7:latest
+FROM centos/python-38-centos7
 
 USER root
 
@@ -7,7 +7,6 @@ COPY . /tmp/src
 RUN mv /tmp/src/.s2i/bin /tmp/scripts
 
 RUN rm -rf /tmp/src/.git* && \
-    python -m pip install --upgrade pip && \
     chown -R 1001 /tmp/src && \
     chgrp -R 0 /tmp/src && \
     chmod -R g+w /tmp/src
